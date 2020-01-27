@@ -1,1 +1,5 @@
-print('Hello World')
+print('Ethan Schutzenhofer')
+print('I am a Senior at the University of Missouri-Columbia')
+print('I am 22 years old')
+print('I am planning on get my Masters in Computer Science')
+print('I am excited to learn about python')
