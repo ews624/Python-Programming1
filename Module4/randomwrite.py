@@ -10,14 +10,14 @@ try:
       f = open("randomnum.txt", "x")
       for x in range(count_randomNumbers):
           randomNum = str(random.randrange(low_range, high_range+1,2))
-          f.write(randomNum)
+          f.write(randomNum+ '\n')
           print(randomNum)
       f.close()
 except FileExistsError:
       f = open("randomnum.txt", "w")
       for x in range(count_randomNumbers):
           randomNum = str(random.randrange(low_range, high_range+1,2))
-          f.write(randomNum)
+          f.write(randomNum + '\n')
           print(randomNum)
       f.close()
 print('The random numbers were written to randomnum.txt')
