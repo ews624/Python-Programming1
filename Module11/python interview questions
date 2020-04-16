@@ -1,0 +1,97 @@
+1. What is Python?
+    Python is an interpreted, high-level, general-purpose programming language.
+2. What is a variable?
+    In computer programming, a variable or scalar is a storage address (identified by a memory address) paired with an associated symbolic name, which contains some known or unknown quantity of information referred to as a value. 
+3. What is a namespace?
+    a namespace is a collection of element type and attribute names, each of which which can be identified by the unique namespace to which they belong. Namespace is also known as name scope.
+4. What is the difference between list and tuple?
+    The key difference between list and tuple is that a list is mutable while a tuple is immutable.
+5. How you can convert a number to a string?
+    str()
+6. What are the rules for local and global variables?
+    Global variables are declared outside any function, and they can be accessed (used) on any function in the program. Local variables are declared inside a function, and can be used only inside that function.
+7. Explain how to generate random numbers .
+    random.randint(x,y) generates random number from x to y
+8. What is a dictionary?
+    A Dictionay is an unordered collections of elements in the form of  key: value pairs separated by commas within the pair of braces(curly brackets).
+9. What is the self keyword?
+    to refer to instance attributes
+10. What are loop interruption statements?
+    Break, Continue are default interrupt statement in looping
+11. Explain List, Tuple, Set, and Dictionary and provide at least one instance where each of these collection types can be used.
+    List: Collection of items of different data types that can be changed at run time.
+    Tuple: Collection of items of different data types that cannot be changed. It only has read-only access to the collection. This can be used when you want to secure your data collection set and does not need any modification.
+    Set: Collection of items of a similar data type.
+    Dictionary: Collection of items with key-value pairs.
+12. How is Exception Handling done?
+    There are 3 main keywords i.e. try, except and finally which are used to catch exceptions and handle the recovering mechanism accordingly. Try is the block of a code which is monitored for errors. Except block gets executed when an error occurs.
+13. What does ‘#’ symbol do?
+    ‘#’ is used to comment out everything that comes after on the line.
+14. Write the command to get all keys from a dictionary.
+    print dict.keys()
+15. What is range()? Give an example to explain it.
+    It is a function to iterate over a sequence of numbers.
+    for var in list(range (10))
+    Print (var)
+16. What does the // arithmetic operator do?
+    Floor Division
+17. What is a data type?
+    Variables can store data of different types, and different types can do different things.
+18. What are the basic data types that are supported by the language?
+    Text, Numeric, Sequence, Mapping, Set, Boolean, Binary
+19. How do you check whether the two variables are pointing to the same object?
+    'is' keyword
+20. What is for-else and while-else?
+    loop keywords
+21. What does immutable mean in the context of programming?
+    an immutable object can’t be changed    
+22. What is a list in Python?
+    A list is a collection which is ordered and changeable. 
+23. What is a tuple in Python?
+    A tuple is a collection which is ordered and unchangeable. In Python tuples are written with round brackets.
+24. When do you choose a list over a tuple?
+    when you dont want your sequenced to be changed
+25. How do you get the last value in a list or a tuple?
+    some_list[-1] is the shortest and most Pythonic.
+26. What is Index Out Of Range Error?
+    you are providing an index for which a list element does not exist.
+27. Why should a program close a file when it is finished using it?
+    
+
+For the most part, not closing files is a bad idea, for the following reasons:
+
+    It puts your program in the garbage collectors hands - though the file in theory will be auto closed, it may not be closed. Python 3 and Cpython generally do a pretty good job at garbage collecting, but not always, and other variants generally suck at it.
+
+    It can slow down your program. Too many things open, and thus more used space in the RAM, will impact performance.
+
+    For the most part, many changes to files in python do not go into effect until after the file is closed, so if your script edits, leaves open, and reads a file, it won't see the edits.
+
+    You could, theoretically, run in to limits of how many files you can have open.
+
+    Windows treats open files as locked, so legit things like AV scanners or other python scripts can't read the file.
+
+    It is sloppy programming
+
+28. Assume the names variable references a list of strings. Write code that determines whether 'Dale' is in the names list. If it is, display the message 'Hello Dale'.  Otherwise, display the message 'No Dale'.
+    if 'Dale' in list:
+        print("hello Dale")
+    else:
+        print("no Dale")
+29. Write a program that opens a specified text file then displays a list of all the unique words found in the file. Hint: Store each word as an element of a set.
+    text_file = open(file.txt, 'r')
+    read_file = text_file.read()
+    word_list = read_file.split()
+    uniquewords = set(word_list)
+30. Write a program that reads the contents of a text file. The program should create a dictionary in which the keys are the individual words found in the file and the values are the number of times each word appears. For example, if the word "the" appears 128 times, the dictionary would contain an element with 'the' as the key and 128 as the value. The program should either display the frequency of each word or create a second file containing a list of each word and its frequency.
+    
+
+    open("yourfile.txt","r") as infile:
+    textData = infile.read()
+    textData = textData.replace(".","")
+    textData = textData.replace(",","")
+    textList = textData.split(" ")
+
+    dic = Counter(textList)
+
+    for key,value in dic.items():
+        print "Word: %s\n Count: %d\n" % (key,value)
