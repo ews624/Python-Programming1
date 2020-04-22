@@ -7,11 +7,10 @@ timeline = []
 def check_for_Tweet_file():
     fileName = "tweets.dat"
     try:
-        f = open(fileName, "w+")
+        f = open(fileName, "r+")
 
     except:
-        print("Print couldn't open file")
-        exit()
+        f = open(fileName, "x+")
 
     for tweet in f:
         token = tweet.split('+')
@@ -72,6 +71,11 @@ def view_Tweet():
             print(tweet.get_author() + "-" + age)
             print(tweet.get_text())
 
+def search_Tweets():
+    print()
+
+
+    
 def exit_Twitter():
 
     fileName = "tweets.dat"
@@ -101,6 +105,9 @@ def main():
 
         if choice == 2:
             view_Tweet()
+        
+        if choice == 3:
+            search_Tweets()
         
         if choice == 4:
             exit_Twitter() 
