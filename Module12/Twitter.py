@@ -1,9 +1,6 @@
 from Tweet import Tweet 
 import time
 
-
-timeline = []
-
 def check_for_Tweet_file():
     fileName = "tweets.dat"
     try:
@@ -11,7 +8,7 @@ def check_for_Tweet_file():
 
     except:
         f = open(fileName, "x+")
-
+        return
     for tweet in f:
         token = tweet.split('+')
         oldtweets = Tweet(token[0], token[2], float(token[1]))
@@ -72,15 +69,39 @@ def view_Tweet():
             print(tweet.get_text())
 
 def search_Tweets():
-    print()
 
-
+    if len(timeline) == 0:
+        print("There are no tweets to search")
+        return
     
+    searchToken = input("What would you like to search for?")
+    results = 0
+    while searchToken == 0:
+        searchToken = input("What would you like to search for?")
+
+    print("Search Results")
+    print("-----")
+
+    for tweet in timeline:
+        if searchToken in tweet.get_text():
+            age = time.time() - tweet.get_age()
+            if (age) < 60:
+                age = str(int(age)) + 's'
+            elif 60 < (age) < 3600:
+                age = str(int(age/60)) + 'm'
+            elif 3600 < (age):
+                age = str(int(age/3600)) + 'h'
+            print(tweet.get_author() + "-" + age)
+            print(tweet.get_text())
+            results += 1
+    if results == 0:
+        print("No tweets contained ", searchToken)
+    print("")
 def exit_Twitter():
 
     fileName = "tweets.dat"
     try:
-        file = open(fileName, "w")
+        file = open(fileName, "r+")
 
     except:
         print("Print couldn't open file")
@@ -114,6 +135,6 @@ def main():
             break
 
 
-
+timeline = []
 
 main()
